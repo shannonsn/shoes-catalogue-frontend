@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- handlebars- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+
+    <!--  bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--jquery for using ajax   -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Shoe Catalogue</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <form class="form-group jumbotron" method="post">
+                    <input class="form-control" id="brand" type="text" name="brand" value="" placeholder="brandname">
+                    <br>
+                    <input class="form-control" id="color" type="text" name="color" value="" placeholder="color">
+                    <br>
+                    <input class="form-control" id="size" type="text" name="size" value="" placeholder="size">
+                    <br>
+                    <input class="form-control" id="quantity" type="text" name="quantity" value="" placeholder="quantity">
+                    <br>
+                    <input class="form-control" id="price" type="text" name="price" value="" placeholder="price">
+                    <br>
+                    <button class='submit btn btn-outline-primary' type="button" name="button">submit</button>
+                    <button class='showStock btn btn-outline-primary' type="button" name="button">show stock</button>
+                </form>
+            </div>
+
+
+            <div class="col-sm-8">
+
+                <form class="form-inline float-right" action="index.html" method="post">
+                    <input id="myInput" type="text" name="" value="" class="search form-control" placeholder="search">
+                    <input style="margin-left: 5px;" type="submit" class="btn btn-outline-primary" name="" value="search">
+                </form>
+                <br><br>
+
+                <div class="display">
+                    <script class='output' type="text/handlebars-x">
+                        <table id="myTable" class="table table-bordered table-striped">
+                            <tr>
+                                <th>Brand</th>
+                                <th>Color</th>
+                                <th>Size</th>
+                                <th>In Stock</th>
+                                <th>Price</th>
+                            </tr>
+                            {{#each shoes}}
+                            <tr>
+                                <td>{{brand}}</td>
+                                <td>{{color}}</td>
+                                <td>{{size}}</td>
+                                <td>{{in_stock}}</td>
+                                <td>{{price}}</td>
+                                <td>Purchase</td>
+                            </tr>
+                            {{/each}}
+                        </table>
+
+                    </script>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="app.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+
+</html>
