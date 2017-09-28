@@ -20,7 +20,7 @@ $('.showStock').on("click", function() {
 $('.submit').on('click', function() {
 
     var shoes = {
-        brand: document.querySelector('#query').value,
+        brand: document.querySelector('#brand').value,
         size: document.querySelector('#size').value,
         color: document.querySelector('#color').value,
         price: document.querySelector('#price').value,
@@ -38,6 +38,26 @@ $('.submit').on('click', function() {
         }
     })
 })
+
+// selling shoes to decrement the instock amount
+
+$('.purchase').on('click', function() {
+  var newShoesValue =
+    $.ajax({
+        type: "POST",
+        url: "https://shoes-catalogue.herokuapp.com/api/shoes/sold",
+        data: shoes,
+        success: function(err, result) {
+            console.log(err);
+        },
+        else(result) {
+            console.log(success);
+        }
+    })
+})
+
+
+
 
 // filters through all the information in the database
 $('#myInput').on('keyup', function() {
