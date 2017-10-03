@@ -1,6 +1,16 @@
 //get all shoes in the database using ajax
 var output = document.querySelector('.output').innerHTML;
 var outputs = Handlebars.compile(output);
+
+$.ajax({
+    type: "GET",
+    url: "https://shoes-catalogue.herokuapp.com/api/shoes"
+}).then(function(result) {
+    console.log(result);
+    document.querySelector(".display").innerHTML = outputs({
+        shoes: result
+    })
+});
 $('.showStock').on("click", function() {
 
     $.ajax({
@@ -37,8 +47,14 @@ $('.submit').on('click', function() {
             console.log(success);
         }
     })
-
+    brand.value = " ";
+    size.value = " ";
+    color.value = " ";
+    price.value = " ";
+    quantity.value = " ";
+    alert("your stock has been added")
 })
+
 
 // selling shoes to decrement the instock amount
 $('.display').on('click', function(event) {
@@ -46,12 +62,11 @@ $('.display').on('click', function(event) {
     $.ajax({
         type: "POST",
         url: "https://shoes-catalogue.herokuapp.com/api/shoes/sold/" + soldShoe,
-        success: function(err, result) {
-            if (err) {
-                console.log(err);
-            } else {
-              location.reload();
-            }
+        success: function(result, forceGet) {
+            // var initDocument = $.extend(true, {}, document);
+            // var initDoc = $.extend({}, document);
+            alert("you are now the owner of a new awesome shoe")
+            location.reload(forceGet);
         }
     })
 })
