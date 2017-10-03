@@ -42,18 +42,20 @@ $('.submit').on('click', function() {
 
 // selling shoes to decrement the instock amount
 $('.display').on('click', function(event) {
-  var soldShoe = event.target.value;
+    var soldShoe = event.target.value;
     $.ajax({
         type: "POST",
         url: "https://shoes-catalogue.herokuapp.com/api/shoes/sold/" + soldShoe,
         success: function(err, result) {
-            console.log(err);
-        },
-        else(result) {
-            console.log(success);
+            if (err) {
+                console.log(err);
+            } else {
+              location.reload();
+            }
         }
     })
 })
+
 
 
 // filters through all the information in the database
