@@ -63,8 +63,6 @@ $('.display').on('click', function(event) {
         type: "POST",
         url: "https://shoes-catalogue.herokuapp.com/api/shoes/sold/" + soldShoe,
         success: function(result, forceGet) {
-            // var initDocument = $.extend(true, {}, document);
-            // var initDoc = $.extend({}, document);
             alert("you are now the owner of a new awesome shoe")
             location.reload(forceGet);
         }
