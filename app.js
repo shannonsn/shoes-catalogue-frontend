@@ -40,12 +40,9 @@ $('.submit').on('click', function() {
         type: "POST",
         url: "https://shoes-catalogue.herokuapp.com/api/shoes",
         data: shoes,
-        success: function(err, result) {
-            console.log(err);
+        success: function(forceGet) {
+            location.reload(forceGet);
         },
-        else(result) {
-            console.log(success);
-        }
     })
     brand.value = " ";
     size.value = " ";
